@@ -38,7 +38,7 @@ document.addEventListener('contextmenu',function(e){
     e.preventDefault() 
 })
  function lose(){
-    if($('.head1.body').length||$('.head2.body').length||$('.head3.body').length||$('.head4.body').length||$('.end.body').length) {
+    if($('[data-head][data-body]').length||$('[data-head][data-end]').length) {
     clearInterval(main)
     clearInterval(help)
      $('.grid').append(`<div class="lose">Вы проиграли<br><input type="submit" value="Начать сначала"></div>`)
@@ -59,34 +59,49 @@ function win(){
         case 1:
             if((count_head-((count_head%15))==0)){var num=count_head+14*15}
             else{var num=count_head-15}
-            $(`.head${j}`).removeClass(`head${j}`).addClass(`body`).attr('data-snake_lenght',0)
-            $(`[data-counter=${num}]`).addClass(`head${new_j}`).removeClass(`sota`)
+            switch(j){
+                case 1:$(`.head${j}`).removeClass(`head${j}`).addClass(`body1`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 2:$(`.head${j}`).removeClass(`head${j}`).addClass(`body4`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 4:$(`.head${j}`).removeClass(`head${j}`).addClass(`body3`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+            }
             break
         case 2:
-            if((count_head+1)%15==0){var num1=count_head-14}
-            else{var num1=count_head+1}
-            $(`.head${j}`).removeClass(`head${j}`).addClass(`body`).attr('data-snake_lenght',0)
-            $(`[data-counter=${num1}]`).addClass(`head${new_j}`).removeClass(`sota`)
+            if((count_head+1)%15==0){var num=count_head-14}
+            else{var num=count_head+1}
+            switch(j){
+                case 1:$(`.head${j}`).removeClass(`head${j}`).addClass(`body5`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 2:$(`.head${j}`).removeClass(`head${j}`).addClass(`body2`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 3:$(`.head${j}`).removeClass(`head${j}`).addClass(`body3`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+            }
             break
         case 3:
-            if(count_head>=210){var num2=count_head-14*15}
-            else{var num2=count_head+15}
-            $(`.head${j}`).removeClass(`head${j}`).addClass(`body`).attr('data-snake_lenght',0)
-            $(`[data-counter=${num2}]`).addClass(`head${new_j}`).removeClass(`sota`)
+            if(count_head>=210){var num=count_head-14*15}
+            else{var num=count_head+15}
+            switch(j){
+                case 2:$(`.head${j}`).removeClass(`head${j}`).addClass(`body6`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 3:$(`.head${j}`).removeClass(`head${j}`).addClass(`body1`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 4:$(`.head${j}`).removeClass(`head${j}`).addClass(`body5`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+            }
             break
         case 4:
-            if((count_head)%15==0){var num3=count_head+14}
-            else{var num3=count_head-1}
-            $(`.head${j}`).removeClass(`head${j}`).addClass(`body`).attr('data-snake_lenght',0)
-            $(`[data-counter=${num3}]`).addClass(`head${new_j}`).removeClass(`sota`)
+            if((count_head)%15==0){var num=count_head+14}
+            else{var num=count_head-1}
+            switch(j){
+                case 1:$(`.head${j}`).removeClass(`head${j}`).addClass(`body6`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 3:$(`.head${j}`).removeClass(`head${j}`).addClass(`body4`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+                case 4:$(`.head${j}`).removeClass(`head${j}`).addClass(`body2`).attr('data-snake_lenght',0).attr(`data-pos`,j).removeAttr(`data-head`).attr(`data-body`,1); break
+            }
             break
     }
+    
+    $(`[data-counter=${num}]`).addClass(`head${new_j}`).removeClass(`sota`).attr(`data-head`,1)
+    
     j=new_j
  }
   function SnakeLenght(){
      $.each($('[data-snake_lenght]'),function(){$(this).attr('data-snake_lenght',Number($(this).attr('data-snake_lenght'))+1)})
-     if($(`[data-snake_lenght=${snake_lenght}]`)){$(`[data-snake_lenght=${snake_lenght}]`).removeClass('body').addClass('end').removeClass('apple')}
-     if($($(`[data-snake_lenght=${snake_lenght+1}]`))){$(`[data-snake_lenght=${snake_lenght+1}]`).removeAttr('data-snake_lenght').removeClass('end').addClass('sota')}
+     if($(`[data-snake_lenght=${snake_lenght}]`)){$(`[data-snake_lenght=${snake_lenght}]`).removeClass('body').removeAttr(`data-body`).attr(`data-end`,1).removeClass('body1').removeClass('body2').removeClass('body3').removeClass('body4').removeClass('body5').removeClass('body6').addClass(`end${$(`[data-snake_lenght=${(snake_lenght-1)}]`).attr('data-pos')}`).removeClass('apple')}
+     if($($(`[data-snake_lenght=${snake_lenght+1}]`))){$(`[data-snake_lenght=${snake_lenght+1}]`).removeAttr('data-snake_lenght').removeAttr(`data-end`).removeAttr('data-pos').removeClass('end2').removeClass('end1').removeClass('end3').removeClass('end4').addClass('sota')}
   }
 function Food(){
     var sots=$(".sota")

@@ -49,17 +49,6 @@ input[type='submit']{
     font-weight: 900;
     border: 6px solid black;
 }
-.apple{
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    overflow: hidden;
-    line-height: 80px;
-    text-align: center;
-    border: 2px solid black;
-    border-collapse: collapse;
-    background-color: red;
-}
 .sota{
     box-sizing: border-box;
     width: auto;
@@ -71,14 +60,107 @@ input[type='submit']{
     border: 2px solid black;
     border-collapse: collapse;
 }
-.body{
-    background-color: black;
-}
-.end{
-    background-color: blue;
-}
-.head1,.head2,.head3,.head4{
+.apple{
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: url(текстуры/apple.jpg);
+    background-size: cover;
+    background-position: center;
     border: 2px solid black;
+}
+body .body1{
+    background: url(текстуры/body1.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body2{
+    background: url(текстуры/body2.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body3{
+    background: url(текстуры/body3.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body4{
+    background: url(текстуры/body4.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body5{
+    background: url(текстуры/body5.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body6{
+    background: url(текстуры/body6.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+body .body{
+    background-color: black;
+    background: url(текстуры/body6.jpg);
+    background-size: cover;
+    background-position: center;
+}
+body .end1{
+    background: url(текстуры/end1.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+body .end2{
+    background: url(текстуры/end2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+body .end3{
+    background: url(текстуры/end3.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+body .end4{
+    background: url(текстуры/end4.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+body .head1{
+    background: url(текстуры/head1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-color: green;
+}
+body .head2{
+    background: url(текстуры/head2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-color: green;
+}
+body .head3{
+    background: url(текстуры/head3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-color: green;
+}
+body .head4{
+    background: url(текстуры/head4.jpg);
+    background-size: cover;
+    background-position: center;
     background-size: cover;
     background-color: green;
 }
